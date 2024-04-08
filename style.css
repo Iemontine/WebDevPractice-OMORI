@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,66 +10,43 @@ body, html {
 
 .lightbulb-container {
     position: absolute;
-    top: -50%; /* Adjust based on the size of your lightbulb image */
+    top: -200%;
     opacity: 0;
-    animation: slideInFadeIn 5s forwards, stayVisible 3s 5s, slideOutFadeOut 5s 8s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: animateLightbulb 8s forwards;
 }
 
 .lightbulb {
-    display: block;
-    /* Adjust height as needed depending on the size of your lightbulb image */
-    height: 100px; /* Example size */
+    width: auto;
+    height: 150px;
 }
 
 .string {
-    height: 50%; /* Adjust based on the desired string length */
-    width: 2px; /* Thin rectangle that represents the string */
-    background-color: #000; /* Color of the string */
-    margin: auto;
-}
-
-.site-content {
     position: absolute;
-    top: 100%;
-    opacity: 0;
-    animation: fadeInFromBottom 5s forwards;
-    animation-delay: 13s;
-    text-align: center;
+    top: -2000px;
+    width: 1px;
+    height: 2000px;
+    background-color: rgb(42, 42, 42);
+    margin-bottom: -5px;
 }
 
-.temporary-text {
-font-size: 24px;
-    color: #333;
-}
-
-.content-image {
-    margin-top: 20px;
-}
-
-@keyframes slideInFadeIn {
+@keyframes animateLightbulb {
     from {
-        top: -50%;
+        top: 0%;
         opacity: 0;
     }
-    to {
-        top: 20%; /* Adjust depending on the final position of the lightbulb */
+    50% {
+        top: 35%; 
         opacity: 1;
     }
-}
-
-@keyframes stayVisible {
-    from { opacity: 1; }
-    to { opacity: 1; }
-}
-
-@keyframes slideOutFadeOut {
-    from {
-        top: 20%; /* Adjust for consistency with the slideIn animation */
+    50%, 75% {
         opacity: 1;
     }
     to {
-        top: -50%;
-        opacity: 0;
+        top: 0%;
+        opacity: 1;
     }
 }
 
@@ -82,4 +59,12 @@ font-size: 24px;
         top: 50%;
         opacity: 1;
     }
+}
+
+.site-content {
+    position: absolute;
+    opacity: 0;
+    top: 100%;
+    animation: fadeInFromBottom 3s 4s forwards;
+    text-align: center;
 }
