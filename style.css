@@ -1,0 +1,85 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbulb-container {
+    position: absolute;
+    top: -50%; /* Adjust based on the size of your lightbulb image */
+    opacity: 0;
+    animation: slideInFadeIn 5s forwards, stayVisible 3s 5s, slideOutFadeOut 5s 8s forwards;
+}
+
+.lightbulb {
+    display: block;
+    /* Adjust height as needed depending on the size of your lightbulb image */
+    height: 100px; /* Example size */
+}
+
+.string {
+    height: 50%; /* Adjust based on the desired string length */
+    width: 2px; /* Thin rectangle that represents the string */
+    background-color: #000; /* Color of the string */
+    margin: auto;
+}
+
+.site-content {
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    animation: fadeInFromBottom 5s forwards;
+    animation-delay: 13s;
+    text-align: center;
+}
+
+.temporary-text {
+font-size: 24px;
+    color: #333;
+}
+
+.content-image {
+    margin-top: 20px;
+}
+
+@keyframes slideInFadeIn {
+    from {
+        top: -50%;
+        opacity: 0;
+    }
+    to {
+        top: 20%; /* Adjust depending on the final position of the lightbulb */
+        opacity: 1;
+    }
+}
+
+@keyframes stayVisible {
+    from { opacity: 1; }
+    to { opacity: 1; }
+}
+
+@keyframes slideOutFadeOut {
+    from {
+        top: 20%; /* Adjust for consistency with the slideIn animation */
+        opacity: 1;
+    }
+    to {
+        top: -50%;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInFromBottom {
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
