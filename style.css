@@ -1,70 +1,136 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@font-face {
+	font-family: omori_font;
+	src: url(OMORI-GAME2.ttf);
 }
-
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.title {
+display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: omori_font;
+	width: 100%; /* Continue ensuring it spans the width */
+}
+header {    
+	display: flex;
+	overflow: visible;
+		justify-content: center;
+	align-items: center;
+	height: 100%;
+}
 .lightbulb-container {
-    position: absolute;
-    top: -200%;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: animateLightbulb 8s forwards;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	animation: animateLightbulb 7s forwards;
+	position: relative;
 }
-
 .lightbulb {
-    width: auto;
-    height: 150px;
+	width: auto;
+	height: 95px;
 }
-
 .string {
-    position: absolute;
-    top: -2000px;
-    width: 1px;
-    height: 2000px;
-    background-color: rgb(42, 42, 42);
-    margin-bottom: -5px;
+	position: absolute;
+	top: -2000px;
+	width: 1.5px;
+	height: 2000px;
+	background-color: rgb(42, 42, 42);
+	margin-bottom: -5px;
 }
 
+h1 {
+	position:relative;
+	font-size:145px;
+	font-family: omori_font;
+	font-weight:500;
+	opacity: 0;
+	animation: fadeInMoveUp 7s forwards;
+	top:-1%;
+}
+
+/* was using this to create space between OM and RI, determined unneeded */
+/* h1 + .lightbulb-container, .lightbulb-container + h1 {
+	margin-left: 0px;
+} */
+/* CSS cascading, go into tag inside a tag */
+
+main {
+	opacity: 0;
+	text-align:center;
+	align-self: center;
+	top: 100%;
+	font-family: omori_font;
+	font-size: 100px;
+	animation: fadeInFromBottom 7s forwards;
+}
+
+@media (max-width: 768px) {
+	
+}
+.rectangle {
+	position: absolute;
+	max-width: 375px;
+	width: 375px;
+	height: 290px;
+	top: -50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 4px solid black;
+	position: relative; /* Make this a positioning context for absolute child elements */
+}
+.sprite {
+	position: relative;
+	image-rendering: optimizeSpeed;
+	/* Disable anti-aliasing to make small sprite images look better */
+	image-rendering: pixelated;
+}
+
+/* These animations were reproduced from scratch, referencing the official OMORI website */
 @keyframes animateLightbulb {
-    from {
-        top: 0%;
-        opacity: 0;
-    }
-    50% {
-        top: 35%; 
-        opacity: 1;
-    }
-    50%, 75% {
-        opacity: 1;
-    }
-    to {
-        top: 0%;
-        opacity: 1;
-    }
+	0% {
+		transform: translateY(-13vh); /* Start from above the view */
+		opacity: 0;
+	}
+	33.3%, 66.6%{
+		transform: translateY(-13vh); /* Adjust landing position */
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-43.5vh);
+		opacity: 1;
+	}
 }
-
+@keyframes fadeInMoveUp {
+	0% , 33.3% {
+		transform: translateY(-13vh);
+		opacity: 0;		
+	}
+	66.6%{
+		transform: translateY(-13vh);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-43.5vh);
+		opacity: 1;
+	}
+}
 @keyframes fadeInFromBottom {
-    from {
-        top: 100%;
-        opacity: 0;
-    }
-    to {
-        top: 50%;
-        opacity: 1;
-    }
-}
-
-.site-content {
-    position: absolute;
-    opacity: 0;
-    top: 100%;
-    animation: fadeInFromBottom 3s 4s forwards;
-    text-align: center;
+	0% , 33.3% {
+		transform: translateY(10vh);
+		opacity: 0;		
+	}
+	66.6% {
+		transform: translateY(10vh);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(-30vh);
+		opacity: 1;
+	}
 }
