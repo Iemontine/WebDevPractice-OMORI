@@ -39,7 +39,7 @@ header {
 header h1 {
 	position:fixed;
 	font-size: 160px;
-	font-weight: bold;
+	font-weight: lighter;
 	margin-top:-44px;
 	animation: fadeInMoveUpDelayed 8s forwards;
 }
@@ -91,13 +91,13 @@ header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); }		/* RI text */
 
 .rectangle {
 	position: absolute;
-	width: 80vw;
-	height: calc(80vw * calc(310/410));
+	width: 60vw;
+    height: 100%;
+	height: calc(60vw * calc(310/410));
 	max-width: 410px;
 	max-height: 310px;
-	top: -50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -60%);
 	background-color: white;
 	border: 4px solid black;
 	position: relative;
@@ -108,32 +108,32 @@ header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); }		/* RI text */
 	image-rendering: pixelated;
 }
 .sprite[src="laptop.gif"] {
-	left: 30%; top: 3%; height: auto; width: calc(80vw * (60/410)); max-width: 60px; min-width: 20px;
+	left: 30%; top: 3%; height: auto; width: calc(60vw * (60/410)); max-width: 60px; min-width: 20px;
 }
 .sprite[src="mewoSleep.gif"] {
-	left: 0%; top: 108%; height: auto; width: calc(80vw * (89/410)); max-width: 89px; min-width: 20px;
+	left: 0%; top: 108%; height: auto; width: calc(60vw * (89/410)); max-width: 89px; min-width: 20px;
 }
 .sprite[src="mewoSleep.gif"]:hover {
     content: url('mewoWake.gif');
 }
 .sprite[src="tissues.bmp"] {
-	left: 81%; top: 75%; height: auto; width: calc(80vw * (55/410)); max-width: 55px; min-width: 20px;
+	left: 81%; top: 75%; height: auto; width: calc(60vw * (55/410)); max-width: 55px; min-width: 20px;
 }
 .sprite[src="notepad.bmp"] {
-	left: 81%; top: 6%; height: auto; width: calc(80vw * (60/410)); max-width: 60px; min-width: 20px;
+	left: 81%; top: 6%; height: auto; width: calc(60vw * (60/410)); max-width: 60px; min-width: 20px;
 }
 
 main {
 	text-align:center;
 	align-self: center;
-	transform: translateY(-10000000px);
+	transform: translateY(650px);
 	font-family: omori_font;
 	font-size: 120px;
-	animation: moveUp 0s forwards;
+	animation: moveUp 8s forwards;
 }
 @keyframes moveUp {
 	0%, 66.66% {	/* Start in position */
-		transform: translateY(500%);
+		transform: translateY(650%);
 	}
 	100% {			/* Move up */
 		transform: translateY(75vh);
@@ -141,12 +141,17 @@ main {
 }
 
 .textbox {
-	position: absolute;
-	transform-origin: translate(50%, -50%);
-	transform: translate(-35%, 480%);
+    position: relative;
+    min-width: 300px;
     background-color: black;
 	border: 4px solid black;
-	/* TODO: Have to change this for textbox responsiveness */
+    overflow: hidden;
+    width: fit-content;
+    top: 85%;
+    left: -30%;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 12s;
 }
 .inner-textbox {
     font-family: omori_font;
@@ -155,29 +160,36 @@ main {
 	font-size: 22px;
 	padding: 10px;
     border: 2.5px solid white;
+    white-space: nowrap;
+    overflow: hidden;
 }
-@keyframes fadeInTextbox {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
     to {
         opacity: 1;
     }
 }
 
 /* Move Mewo onto the rectangle for smaller screens */
-@media (max-width: 700px) {
+@media (max-width: 500px) {
 	.sprite[src="mewoSleep.gif"] {
         top: 77%;
 		left: 2%;
     }
-	.textbox {
-		transform: translate(-32.5%, 300%);
-	}
+    .textbox {
+        top: 110%;
+        left: -25%;
+    }
 }
-@media (max-height: 850px) {
+@media (max-height: 800px) {
 	.sprite[src="mewoSleep.gif"] {
         top: 77%;
 		left: 2%;
     }
-	.textbox {
-		transform: translate(-32.5%, 300%);
-	}
+    .textbox {
+        top: 110%;
+        left: -25%;
+    }
 }
