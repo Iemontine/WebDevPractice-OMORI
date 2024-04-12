@@ -19,27 +19,23 @@ header {
 	width: 100%;
 	margin-left: 15px;
 }
-
-.lightbulb-container {
+#lightbulb-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	align-content: center;
 }
-
-.lightbulb {
+#lightbulb {
 	position: fixed;
 	height: 105px;
 	animation: fadeInMoveUp 8s forwards;
 }
-
-.string {
+#string {
 	position: absolute;
 	width: 1.5px;
 	background-color: rgb(42, 42, 42);
 	animation: fadeInMoveUpString 8s forwards;
 }
-
 header h1 {
 	position: fixed;
 	font-size: 160px;
@@ -47,17 +43,8 @@ header h1 {
 	margin-top: -44px;
 	animation: fadeInMoveUpDelayed 8s forwards;
 }
-
-/* OM text */
-header h1:nth-of-type(1) {
-	left: calc(50% - 360px / 2 + 15px);
-}
-
-/* RI text */
-header h1:nth-of-type(2) {
-	left: calc(50% + 70px / 2 + 15px);
-}
-
+header h1:nth-of-type(1) { left: calc(50% - 360px / 2 + 15px); } /* OM text */
+header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); } /* RI text */
 
 /* These animations reference the official OMORI website */
 @keyframes fadeInMoveUpString {
@@ -65,48 +52,30 @@ header h1:nth-of-type(2) {
 	33.33%, 66.66%	{ height: 33.33%; opacity: 1; }	/* Fade in */
 	100% 			{ height: 17px; }				/* Emulate the string moving up by simply shrinking the string */
 }
-
 @keyframes fadeInMoveUp {
-	0% { top: 33.33%; opacity: 0;
-	} /* Start invisible in position */
-
-	33.33%,
-	66.66% {
-		/* Fade in */
-		top: 33.33%;
-		opacity: 1;
-	}
-
-	100% {
-		/* Move up */
-		top: 17px;
-		opacity: 1;
-	}
+	0% 				{ top: 33.33%; opacity: 0; } /* Start invisible in position */
+	33.33%, 66.66%	{ top: 33.33%; opacity: 1; } /* Fade in */
+	100% 			{ top: 17px; opacity: 1; }/* Move up */
 }
-
 @keyframes fadeInMoveUpDelayed {
-
-	0%,
-	33.33% {
-		/* Start invisible in position */
-		top: 33.33%;
-		opacity: 0;
-	}
-
-	66.66% {
-		/* Fade in */
-		top: 33.33%;
-		opacity: 1;
-	}
-
-	100% {
-		/* Move up */
-		top: 17px;
-		opacity: 1;
-	}
+	0%, 33.33% 	{ top: 33.33%; opacity: 0; } /* Start invisible in position */
+	66.66% 		{ top: 33.33%; opacity: 1; } /* Fade in */
+	100% 		{ top: 17px; opacity: 1; } /* Move up */
 }
 
-.rectangle {
+main {
+	text-align: center;
+	align-self: center;
+	transform: translateY(650%);
+	font-family: omori_font;
+	font-size: 120px;
+	animation: moveUp 8s forwards;
+}
+@keyframes moveUp {
+	0%, 66.66% 	{ transform: translateY(650%); } /* Start in position */
+	100% 		{ transform: translateY(75vh); } /* Move up */
+}
+#rectangle {
 	position: absolute;
 	width: 60vw;
 	height: 100%;
@@ -119,77 +88,32 @@ header h1:nth-of-type(2) {
 	border: 4px solid black;
 	position: relative;
 }
-
 .sprite {
 	position: absolute;
 	/* Disable anti-aliasing to low-resolution sprite images look better */
 	image-rendering: pixelated;
 }
-
-.sprite[src="laptop.gif"] {
-	left: 30%;
-	top: 3%;
-	height: auto;
-	width: calc(60vw * (60/410));
-	max-width: 60px;
-	min-width: 20px;
+.sprite[src="laptop.gif"] { 
+	left: 30%;  top: 3%; height: auto; width: calc(60vw * (60/410)); 
+	max-width: 60px; min-width: 20px;
 }
-
 .sprite[src="mewoSleep.gif"] {
-	left: 0%;
-	top: 108%;
-	height: auto;
-	width: calc(60vw * (89/410));
-	max-width: 89px;
-	min-width: 20px;
+	left: 0%; top: 108%; height: auto; width: calc(60vw * (89/410));
+	max-width: 89px; min-width: 20px;
 }
-
+.sprite[src="tissues.bmp"] {
+	left: 81%; top: 75%; height: auto; width: calc(60vw * (55/410));
+	max-width: 55px; min-width: 20px;
+}
+.sprite[src="notepad.bmp"] {
+	left: 81%; top: 6%; height: auto; width: calc(60vw * (60/410));
+	max-width: 60px; min-width: 20px;
+}
 .sprite[src="mewoSleep.gif"]:hover {
 	content: url('mewoWake.gif');
 }
 
-.sprite[src="tissues.bmp"] {
-	left: 81%;
-	top: 75%;
-	height: auto;
-	width: calc(60vw * (55/410));
-	max-width: 55px;
-	min-width: 20px;
-}
-
-.sprite[src="notepad.bmp"] {
-	left: 81%;
-	top: 6%;
-	height: auto;
-	width: calc(60vw * (60/410));
-	max-width: 60px;
-	min-width: 20px;
-}
-
-main {
-	text-align: center;
-	align-self: center;
-	transform: translateY(650px);
-	font-family: omori_font;
-	font-size: 120px;
-	animation: moveUp 8s forwards;
-}
-
-@keyframes moveUp {
-
-	0%,
-	66.66% {
-		/* Start in position */
-		transform: translateY(650%);
-	}
-
-	100% {
-		/* Move up */
-		transform: translateY(75vh);
-	}
-}
-
-.textbox {
+#textbox {
 	position: relative;
 	min-width: 300px;
 	background-color: black;
@@ -202,8 +126,7 @@ main {
 	animation: fadeIn 2s forwards;
 	animation-delay: 7s;
 }
-
-.inner-textbox {
+#inner-textbox {
 	font-family: omori_font;
 	user-select: text;
 	color: white;
@@ -213,15 +136,9 @@ main {
 	white-space: nowrap;
 	overflow: hidden;
 }
-
 @keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
 /* Move Mewo onto the rectangle for smaller screens */
@@ -230,20 +147,17 @@ main {
 		top: 77%;
 		left: 2%;
 	}
-
-	.textbox {
+	#textbox {
 		top: 102.5%;
 		left: -25%;
 	}
 }
-
 @media (max-height: 850px) {
 	.sprite[src="mewoSleep.gif"] {
 		top: 77%;
 		left: 2%;
 	}
-
-	.textbox {
+	#textbox {
 		top: 102.5%;
 		left: -25%;
 	}
