@@ -48,44 +48,27 @@ header h1 {
 	animation: fadeInMoveUpDelayed 8s forwards;
 }
 
+/* OM text */
 header h1:nth-of-type(1) {
 	left: calc(50% - 360px / 2 + 15px);
 }
 
-/* OM text */
+/* RI text */
 header h1:nth-of-type(2) {
 	left: calc(50% + 70px / 2 + 15px);
 }
 
-/* RI text */
 
 /* These animations reference the official OMORI website */
 @keyframes fadeInMoveUpString {
-	0% {
-		/* Start invisible in position */
-		height: 33.33%;
-		opacity: 0;
-	}
-
-	33.33%,
-	66.66% {
-		/* Fade in */
-		height: 33.33%;
-		opacity: 1;
-	}
-
-	100% {
-		/* Move up */
-		height: 17px;
-	}
+	0% 				{ height: 33.33%; opacity: 0; }	/* Start invisible in position */
+	33.33%, 66.66%	{ height: 33.33%; opacity: 1; }	/* Fade in */
+	100% 			{ height: 17px; }				/* Emulate the string moving up by simply shrinking the string */
 }
 
 @keyframes fadeInMoveUp {
-	0% {
-		/* Start invisible in position */
-		top: 33.33%;
-		opacity: 0;
-	}
+	0% { top: 33.33%; opacity: 0;
+	} /* Start invisible in position */
 
 	33.33%,
 	66.66% {
