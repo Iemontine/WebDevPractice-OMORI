@@ -112,6 +112,20 @@ main {
 .sprite[src="mewoSleep.gif"]:hover {
 	content: url('mewoWake.gif');
 }
+div > p {
+    position: fixed;
+	top: -75%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50;
+	user-select: text;
+	opacity: 0;
+	font-size: 40px;
+	word-wrap: break-word;
+}
+.sprite[src="mewoSleep.gif"]:hover ~ p:nth-of-type(1)  {
+	animation: fadeIn 1s forwards;
+}
 
 #textbox {
 	position: relative;
