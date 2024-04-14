@@ -3,19 +3,18 @@
 	src: url(OMORI-GAME2.ttf);
 }
 
-body {
-	height: 100%;
+html {
+	height: 70%;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	user-select: none;
+	/* user-select: none; */
+	font-family: omori_font;
 }
 
 header {
 	display: flex;
 	justify-content: center;
-	font-family: omori_font;
-	height: 100%;
 	width: 100%;
 	margin-left: 15px;
 }
@@ -32,6 +31,7 @@ header {
 }
 #string {
 	position: absolute;
+	top:0%;
 	width: 1.5px;
 	background-color: rgb(42, 42, 42);
 	animation: fadeInMoveUpString 8s forwards;
@@ -67,7 +67,6 @@ main {
 	text-align: center;
 	align-self: center;
 	transform: translateY(650%);
-	font-family: omori_font;
 	font-size: 120px;
 	animation: moveUp 8s forwards;
 }
@@ -90,7 +89,7 @@ main {
 }
 .sprite {
 	position: absolute;
-	/* Disable anti-aliasing to low-resolution sprite images look better */
+	/* Disable anti-aliasing on low-resolution sprite images look better */
 	image-rendering: pixelated;
 }
 .sprite[src="laptop.gif"] { 
@@ -112,24 +111,36 @@ main {
 .sprite[src="mewoSleep.gif"]:hover {
 	content: url('mewoWake.gif');
 }
-div > p {
-    position: fixed;
-	top: -75%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 50;
-	user-select: text;
+body > p {
+    position: fixed; 
+    width: auto;
+	top: 90px;
+	left: 5%;
+	right: 5%;
+	bottom: 45%;
+
+    background-color: white;
+    border: 4px solid black;
+    user-select: text;
+    font-size: 40px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+
+	display:none;
 	opacity: 0;
-	font-size: 40px;
-	word-wrap: break-word;
 }
-.sprite[src="mewoSleep.gif"]:hover ~ p:nth-of-type(1)  {
-	animation: fadeIn 1s forwards;
+body > p:target {
+	/* Make the paragraph visible if targeted */
+	display:block;
+	animation: fadeIn 2s forwards;
+}
+a:focus > img, a:hover > img { /* Supports keyboard and/or mouse to choose each nav button */
+	transform: scale(1.1);
 }
 
 #textbox {
 	position: relative;
-	min-width: 300px;
+	min-width: 330px;
 	background-color: black;
 	border: 4px solid black;
 	overflow: hidden;
@@ -141,7 +152,6 @@ div > p {
 	animation-delay: 7s;
 }
 #inner-textbox {
-	font-family: omori_font;
 	user-select: text;
 	color: white;
 	font-size: 22px;
@@ -156,7 +166,7 @@ div > p {
 }
 
 /* Move Mewo onto the rectangle for smaller screens */
-@media (max-width: 500px) {
+@media (max-width: 500px), (max-height: 850px) {
 	.sprite[src="mewoSleep.gif"] {
 		top: 77%;
 		left: 2%;
@@ -164,15 +174,9 @@ div > p {
 	#textbox {
 		top: 102.5%;
 		left: -25%;
+    	font-size: 30px;
 	}
-}
-@media (max-height: 850px) {
-	.sprite[src="mewoSleep.gif"] {
-		top: 77%;
-		left: 2%;
-	}
-	#textbox {
-		top: 102.5%;
-		left: -25%;
+	body > p {
+		bottom: 34.5%;
 	}
 }
