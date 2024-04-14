@@ -8,7 +8,6 @@ html {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	/* user-select: none; */
 	font-family: omori_font;
 }
 
@@ -46,7 +45,7 @@ header h1 {
 header h1:nth-of-type(1) { left: calc(50% - 360px / 2 + 15px); } /* OM text */
 header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); } /* RI text */
 
-/* These animations reference the official OMORI website */
+/* These animations were studied from the intro animations of the official OMORI website */
 @keyframes fadeInMoveUpString {
 	0% 				{ height: 33.33%; opacity: 0; }	/* Start invisible in position */
 	33.33%, 66.66%	{ height: 33.33%; opacity: 1; }	/* Fade in */
@@ -111,6 +110,9 @@ main {
 .sprite[src="mewoSleep.gif"]:hover {
 	content: url('mewoWake.gif');
 }
+strong {
+	text-align: center;
+}
 body > p {
     position: fixed; 
     width: auto;
@@ -122,7 +124,7 @@ body > p {
     background-color: white;
     border: 4px solid black;
     user-select: text;
-    font-size: 40px;
+    font-size: 35px;
     word-wrap: break-word;
     box-sizing: border-box;
 
@@ -130,11 +132,14 @@ body > p {
 	opacity: 0;
 }
 body > p:target {
-	/* Make the paragraph visible if targeted */
+	/* Make the paragraph visible if targeted by the URL */
 	display:block;
 	animation: fadeIn 2s forwards;
 }
-a:focus > img, a:hover > img { /* Supports keyboard and/or mouse to choose each nav button */
+/*	Nav buttons
+	Supports keyboard and/or mouse to choose each nav button 
+	Excludes animating the lightbulb, which secretly returns to the default page*/
+div > a:focus > img, div > a:hover > img { 
 	transform: scale(1.1);
 }
 
@@ -178,5 +183,6 @@ a:focus > img, a:hover > img { /* Supports keyboard and/or mouse to choose each 
 	}
 	body > p {
 		bottom: 34.5%;
+		font-size:17.5px;
 	}
 }
