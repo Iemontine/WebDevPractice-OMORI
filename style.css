@@ -1,6 +1,6 @@
 @font-face {
 	font-family: omori_font;
-	src: url(OMORI-GAME2.ttf);
+	src: url(resources/OMORI-GAME2.ttf);
 }
 
 html {
@@ -45,7 +45,7 @@ header h1 {
 header h1:nth-of-type(1) { left: calc(50% - 360px / 2 + 15px); } /* OM text */
 header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); } /* RI text */
 
-/* These animations were studied from the intro animations of the official OMORI website */
+/* These animations were recreated by studying the intro animations on https://www.omori-game.com/en */
 @keyframes fadeInMoveUpString {
 	0% 				{ height: 33.33%; opacity: 0; }	/* Start invisible in position */
 	33.33%, 66.66%	{ height: 33.33%; opacity: 1; }	/* Fade in */
@@ -91,56 +91,24 @@ main {
 	/* Disable anti-aliasing on low-resolution sprite images look better */
 	image-rendering: pixelated;
 }
-.sprite[src="laptop.gif"] { 
+.sprite[src="resources/laptop.gif"] { 
 	left: 30%;  top: 3%; height: auto; width: calc(60vw * (60/410)); 
 	max-width: 60px; min-width: 20px;
 }
-.sprite[src="mewoSleep.gif"] {
+.sprite[src="resources/mewoSleep.gif"] {
 	left: 0%; top: 108%; height: auto; width: calc(60vw * (89/410));
 	max-width: 89px; min-width: 20px;
 }
-.sprite[src="tissues.bmp"] {
+.sprite[src="resources/tissues.bmp"] {
 	left: 81%; top: 75%; height: auto; width: calc(60vw * (55/410));
 	max-width: 55px; min-width: 20px;
 }
-.sprite[src="notepad.bmp"] {
+.sprite[src="resources/notepad.bmp"] {
 	left: 81%; top: 6%; height: auto; width: calc(60vw * (60/410));
 	max-width: 60px; min-width: 20px;
 }
-.sprite[src="mewoSleep.gif"]:hover {
-	content: url('mewoWake.gif');
-}
-strong {
-	text-align: center;
-}
-body > p {
-    position: fixed; 
-    width: auto;
-	top: 90px;
-	left: 5%;
-	right: 5%;
-	bottom: 45%;
-
-    background-color: white;
-    border: 4px solid black;
-    user-select: text;
-    font-size: 35px;
-    word-wrap: break-word;
-    box-sizing: border-box;
-
-	display:none;
-	opacity: 0;
-}
-body > p:target {
-	/* Make the paragraph visible if targeted by the URL */
-	display:block;
-	animation: fadeIn 2s forwards;
-}
-/*	Nav buttons
-	Supports keyboard and/or mouse to choose each nav button 
-	Excludes animating the lightbulb, which secretly returns to the default page*/
-div > a:focus > img, div > a:hover > img { 
-	transform: scale(1.1);
+.sprite[src="resources/mewoSleep.gif"]:hover {
+	content: url('resources/mewoWake.gif');
 }
 
 #textbox {
@@ -170,19 +138,77 @@ div > a:focus > img, div > a:hover > img {
 	to { opacity: 1; }
 }
 
-/* Move Mewo onto the rectangle for smaller screens */
-@media (max-width: 500px), (max-height: 850px) {
-	.sprite[src="mewoSleep.gif"] {
+.content {
+    position: fixed; 
+    width: auto;
+	top: 120px;
+	left: 15%;
+	right: 15%;
+	bottom: 45%;
+
+    background-color: white;
+    border: 4px solid black;
+    user-select: text;
+    word-wrap: break-word;
+    box-sizing: border-box;
+	margin: 0;
+	overflow: auto;
+    font-size: 25px;
+
+	display:none;
+	opacity: 0;
+}
+.content > h2 {
+	text-align: center;
+	font-size: 45px;
+	font-weight: bolder;
+	margin: 0px;
+	margin-bottom: 0;
+}
+/* TODO: gradient backgrounds, OMORI headspace 'clouds' */
+div:target {
+	/* Make the paragraph visible if targeted by the URL */
+	display:block;
+	animation: fadeIn 2s forwards;
+}
+/*	Nav buttons
+	Supports keyboard and/or mouse to choose each nav button 
+	Excludes animating the lightbulb, which secretly returns to the default page */
+div > a:focus > img, div > a:hover > img { 
+	transform: scale(1.1);
+}
+
+footer {
+	position: fixed;
+	bottom: 5px;
+	font-size: 15px;
+}
+footer > data {
+	position: relative;
+	font-size: 12px;
+	top: 2px;
+	color: rgb(45, 45, 45)
+}
+
+/* Media Query, adjust size of some elements on smaller screens */
+@media (max-width: 800px), (max-height: 850px) {
+	/* Move Mewo onto the rectangle */
+	.sprite[src="resources/mewoSleep.gif"] {
 		top: 77%;
 		left: 2%;
 	}
 	#textbox {
-		top: 102.5%;
+		top: 100%;
 		left: -25%;
     	font-size: 30px;
 	}
-	body > p {
-		bottom: 34.5%;
+	.content {
+		bottom: 40%;
 		font-size:17.5px;
+		left: 2%;
+		right: 2%;
+	}
+	.content > h2 {
+		font-size: 27.5px;
 	}
 }
