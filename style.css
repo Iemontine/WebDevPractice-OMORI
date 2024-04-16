@@ -4,29 +4,20 @@
 }
 
 html {
-	height: 70%;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	font-family: omori_font;
+	overflow: hidden;			/* Disable scrolling by default */
+	font-family: omori_font;	/* Apply OMORI font to entire site */
 }
 
 header {
-	display: flex;
-	justify-content: center;
+	user-select: none;
 	width: 100%;
-	margin-left: 15px;
+	margin-left: 15px;	/* This pushes the lightbulb-container to the right */
 }
+
 #lightbulb-container {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-content: center;
-}
-#lightbulb {
-	position: fixed;
-	height: 105px;
-	animation: fadeInMoveUp 8s forwards;
+	flex-direction: column; /* Make the string stack on the lightbulb */
+	align-items: center;	/* Align the container in the center */
 }
 #string {
 	position: absolute;
@@ -35,15 +26,22 @@ header {
 	background-color: rgb(42, 42, 42);
 	animation: fadeInMoveUpString 8s forwards;
 }
+#lightbulb {
+	position: fixed;
+	height: 105px;
+	animation: fadeInMoveUp 8s forwards;
+}
+header h1:nth-of-type(1) { left: calc(50% - 360px / 2 + 15px); } 	/* OM text */
+header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); } 	/* RI text */
 header h1 {
 	position: fixed;
+	margin-top: -44px;
+
 	font-size: 160px;
 	font-weight: lighter;
-	margin-top: -44px;
+
 	animation: fadeInMoveUpDelayed 8s forwards;
 }
-header h1:nth-of-type(1) { left: calc(50% - 360px / 2 + 15px); } /* OM text */
-header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); } /* RI text */
 
 /* These animations were recreated by studying the intro animations on https://www.omori-game.com/en */
 @keyframes fadeInMoveUpString {
@@ -52,42 +50,48 @@ header h1:nth-of-type(2) { left: calc(50% + 70px / 2 + 15px); } /* RI text */
 	100% 			{ height: 17px; }				/* Emulate the string moving up by simply shrinking the string */
 }
 @keyframes fadeInMoveUp {
-	0% 				{ top: 33.33%; opacity: 0; } /* Start invisible in position */
-	33.33%, 66.66%	{ top: 33.33%; opacity: 1; } /* Fade in */
-	100% 			{ top: 17px; opacity: 1; }/* Move up */
+	0% 				{ top: 33.33%; opacity: 0; } 	/* Start invisible in position */
+	33.33%, 66.66%	{ top: 33.33%; opacity: 1; } 	/* Fade in */
+	100% 			{ top: 17px; opacity: 1; }		/* Move up */
 }
 @keyframes fadeInMoveUpDelayed {
-	0%, 33.33% 	{ top: 33.33%; opacity: 0; } /* Start invisible in position */
-	66.66% 		{ top: 33.33%; opacity: 1; } /* Fade in */
-	100% 		{ top: 17px; opacity: 1; } /* Move up */
+	0%, 33.33% 	{ top: 33.33%; opacity: 0; } 		/* Start invisible in position */
+	66.66% 		{ top: 33.33%; opacity: 1; } 		/* Fade in */
+	100% 		{ top: 17px; opacity: 1; } 			/* Move up */
 }
 
-main {
-	text-align: center;
-	align-self: center;
-	transform: translateY(650%);
+menu {
+	/* Override default menu setting */
+	padding-inline-start: 0px;
+	padding-left: 0px;
+	display: block;
+	list-style-type: none;
+	margin:0;
+	
+	transform: translateY(125vh);
 	font-size: 120px;
 	animation: moveUp 8s forwards;
 }
 @keyframes moveUp {
-	0%, 66.66% 	{ transform: translateY(650%); } /* Start in position */
-	100% 		{ transform: translateY(75vh); } /* Move up */
+	0%, 66.66% 	{ transform: translateY(125vh); } 	/* Start in position */
+	100% 		{ transform: translateY(72.5vh);} 	/* Move up */
 }
 #rectangle {
 	position: absolute;
 	width: 60vw;
-	height: 100%;
 	height: calc(60vw * calc(310/410));
 	max-width: 410px;
 	max-height: 310px;
 	left: 50%;
+	
 	transform: translate(-50%, -60%);
+	
 	background-color: white;
 	border: 4px solid black;
-	position: relative;
 }
 .sprite {
 	position: absolute;
+	user-select: none;
 	/* Disable anti-aliasing on low-resolution sprite images look better */
 	image-rendering: pixelated;
 }
@@ -113,14 +117,18 @@ main {
 
 #textbox {
 	position: relative;
-	min-width: 330px;
-	background-color: black;
-	border: 4px solid black;
+	text-align: center;
+
 	overflow: hidden;
 	width: fit-content;
+	min-width: 330px;
 	top: 85%;
 	left: -30%;
+
 	opacity: 0;
+	background-color: black;
+	border: 4px solid black;
+	
 	animation: fadeIn 2s forwards;
 	animation-delay: 7s;
 }
@@ -139,42 +147,86 @@ main {
 }
 
 .content {
-    position: fixed; 
-    width: auto;
-	top: 120px;
-	left: 15%;
-	right: 15%;
-	bottom: 45%;
+	position: fixed; 
+	top: 130px;
+	left: 20%;
+	right: 20%;
+	bottom: 46.5%;
+	border: 4px solid black;
+	border-radius: 50px;
 
-    background-color: white;
-    border: 4px solid black;
-    user-select: text;
-    word-wrap: break-word;
-    box-sizing: border-box;
+	user-select: text;
+	word-wrap: break-word;
+	box-sizing: border-box;
+	padding-left: 50px;
+	padding-right: 50px;
 	margin: 0;
-	overflow: auto;
-    font-size: 25px;
+	font-size: 22.5px;
 
-	display:none;
-	opacity: 0;
+	overflow: auto;
+	display: none;
 }
 .content > h2 {
 	text-align: center;
-	font-size: 45px;
+	font-size: 32.5px;
 	font-weight: bolder;
 	margin: 0px;
 	margin-bottom: 0;
 }
-/* TODO: gradient backgrounds, OMORI headspace 'clouds' */
-div:target {
-	/* Make the paragraph visible if targeted by the URL */
-	display:block;
-	animation: fadeIn 2s forwards;
+.content > img {
+	width:30%;
 }
+.content:target
+{
+	/* Make the paragraph visible if targeted by the URL */
+	display: block;
+	animation: textboxAppear 1s forwards, loopGradient 15s linear infinite;
+	
+	/* Setup background */
+	background-size: 400% 400%; 
+}
+/* Gradient backgrounds */
+.content[id="Gameplay_of_OMORI"]:target {
+	background-image: linear-gradient(to right, #894965, #2C2441, #894965);
+	color: white;
+}
+.content[id="Art_of_OMORI"]:target {
+	background-image: linear-gradient(to right, #6D95C7, #2C2441, #6D95C7);
+	color: white;
+}
+.content[id="Story_of_OMORI"]:target {
+	background-image: linear-gradient(to right, #e6c670, #df793d, #e6c670);
+	color: black;
+}
+.content[id="Characters_of_OMORI"]:target {
+	background-image: linear-gradient(to right, #de5e5e, #de805e, #de5e5e);
+	color: black;
+}
+@keyframes textboxAppear {
+	from {
+		opacity: 0;
+		transform: scale(0) translateY(50%);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0%);
+	}
+}
+@keyframes loopGradient {
+	0% { background-position: 0vw; }
+	100% { background-position: calc(60vw * 4); }
+}
+::-webkit-scrollbar { /* hide the default scrollbar which was making the site really ugly */
+	display: none;
+}
+/* if i had more time TODO: make an pointing finger in the bottom right of the reading window point down to show that the user can scroll down */
+
 /*	Nav buttons
 	Supports keyboard and/or mouse to choose each nav button 
-	Excludes animating the lightbulb, which secretly returns to the default page */
-div > a:focus > img, div > a:hover > img { 
+	Excludes animating the lightbulb, which secretly returns to the default page
+	Also exclude Mewo which has its own effect on hover */
+div > a:not([href="#Characters_of_OMORI"]):focus > img, 
+div > a:not([href="#Characters_of_OMORI"]):hover > img { 
 	transform: scale(1.1);
 }
 
@@ -198,17 +250,21 @@ footer > data {
 		left: 2%;
 	}
 	#textbox {
-		top: 100%;
+		top: 105%;
 		left: -25%;
-    	font-size: 30px;
+		font-size: 30px;
 	}
 	.content {
-		bottom: 40%;
+		bottom: 43%;
 		font-size:17.5px;
 		left: 2%;
 		right: 2%;
 	}
 	.content > h2 {
 		font-size: 27.5px;
+	}
+	@keyframes loopGradient {
+		0% { background-position: 0vw; }
+		100% { background-position: 96vw; }
 	}
 }
