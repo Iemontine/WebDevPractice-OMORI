@@ -165,7 +165,7 @@ div > a:not([href="#Characters_of_OMORI"]):hover > img {
 	padding-left: 50px;
 	padding-right: 50px;
 	margin: 0;
-	font-size: 32.5px;
+	font-size: 28px;
 	padding-bottom: 10px;
 
 	display:flex;
@@ -188,7 +188,6 @@ div > a:not([href="#Characters_of_OMORI"]):hover > img {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap; 			/* Allow items to wrap as needed */
-
 }
 .image-container > img {
 	height: 300px;
