@@ -100,11 +100,11 @@ menu {
 	left: 0%; top: 108%; height: auto; width: calc(60vw * (89/410));
 	max-width: 89px; min-width: 20px;
 }
-.sprite[src="tissues.bmp"] {
+.sprite[src="tissues.png"] {
 	left: 81%; top: 75%; height: auto; width: calc(60vw * (55/410));
 	max-width: 55px; min-width: 20px;
 }
-.sprite[src="notepad.bmp"] {
+.sprite[src="notepad.png"] {
 	left: 81%; top: 6%; height: auto; width: calc(60vw * (60/410));
 	max-width: 60px; min-width: 20px;
 }
