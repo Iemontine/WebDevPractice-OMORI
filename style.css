@@ -1,6 +1,6 @@
 @font-face {
 	font-family: omori_font;
-	src: url(OMORI-GAME2.ttf);
+	src: url(OMORI-GAME2.png); /* This is what happens when you only allow pngs to be uploaded */
 }
 html {
 	overflow: hidden;			/* Disable scrolling by default */
