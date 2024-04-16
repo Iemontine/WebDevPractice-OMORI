@@ -1,6 +1,6 @@
 @font-face {
 	font-family: omori_font;
-	src: url(resources/OMORI-GAME2.ttf);
+	src: url(OMORI-GAME2.ttf);
 }
 html {
 	overflow: hidden;			/* Disable scrolling by default */
@@ -92,19 +92,19 @@ menu {
 	user-select: none;
 }
 /* Position each sprite relative to the rectangle */
-.sprite[src="resources/laptop.gif"] { 
+.sprite[src="laptop.gif"] { 
 	left: 30%;  top: 3%; height: auto; width: calc(60vw * (60/410)); 
 	max-width: 60px; min-width: 20px;
 }
-.sprite[src="resources/mewoSleep.gif"] {
+.sprite[src="mewoSleep.gif"] {
 	left: 0%; top: 108%; height: auto; width: calc(60vw * (89/410));
 	max-width: 89px; min-width: 20px;
 }
-.sprite[src="resources/tissues.bmp"] {
+.sprite[src="tissues.bmp"] {
 	left: 81%; top: 75%; height: auto; width: calc(60vw * (55/410));
 	max-width: 55px; min-width: 20px;
 }
-.sprite[src="resources/notepad.bmp"] {
+.sprite[src="notepad.bmp"] {
 	left: 81%; top: 6%; height: auto; width: calc(60vw * (60/410));
 	max-width: 60px; min-width: 20px;
 }
@@ -113,7 +113,7 @@ menu {
 	Excludes animating the lightbulb, which secretly returns to the default page */
 div > a[href="#Characters_of_OMORI"]:focus > img,
 div > a[href="#Characters_of_OMORI"]:hover > img {				
-	content: url('resources/mewoWake.gif');
+	content: url('mewoWake.gif');
 }
 div > a:not([href="#Characters_of_OMORI"]):focus > img, 
 div > a:not([href="#Characters_of_OMORI"]):hover > img { 
@@ -244,7 +244,7 @@ footer > data {
 /* ==================================== Media Query, adjust size of some elements on smaller screens ==================================== */
 @media (max-width: 800px), (max-height: 850px) {
 	/* Move Mewo onto the rectangle */
-	.sprite[src="resources/mewoSleep.gif"] {
+	.sprite[src="mewoSleep.gif"] {
 		top: 77%;
 		left: 2%;
 	}
