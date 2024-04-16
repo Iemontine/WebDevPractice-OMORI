@@ -5,7 +5,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>OMORI</title>
 		<link rel="stylesheet" href="style.css">
-		<!-- Comments to go here? -->
+		<!--From the beginning of the design process, I knew I wanted to do something about the video game OMORI, one of the best games 
+			I’ve ever played, and wanted to use this space to show off my thoughts on and love for it. There are four distinct sections on
+			the page which are: the header, navigation menu, the main (which is where I put all the site content, images/text, etc), and 
+			the footer. I studied the official OMORI website and recreated the intro animation for the logo of the game on the site, which 
+			was extremely challenging and took several hours to get down the way I wanted it to be, in the end I think it was worth it. I 
+			had the idea to make the entire page non-scrollable, only using a button (the navigation menu being a reference to a set piece 
+			in the game), to make the site content appear. For navigating the page, I used the #target subclass and the <a> href attributes 
+			to identify the site content to display and display it. I spent several hours getting the positioning down and figuring out
+			how to make the sprites be positioned relative to the rectangle, which was very formative. Originally, I wanted the site 
+			content to be in a thought bubble coming out of the player character as a unique sprite, but ran out of time. Additionally, I 
+			am not too much of a fan of the coloring of the content bubble, and could not find a way around having the 
+			images be reasonably sized without enabling scrolling on it, leading to the problem of the default scrolling position 
+			being the bottom of the screen so the user would have to scroll UP on site open. I feel that I managed tag semantics and 
+			nesting very well on this project, and my html flows well. I also ensured to control what is selectable, only allowing direct 
+			text and images (not sprites) to be selected. GIF files were used sparingly as per the recommendation of the professor. -->
+		<!-- Sources
+			EmotionArt.png, TurnBasedCombat.png, Grouphug.png, OmoriDream.png, and OmoriNightmare.png
+			are sourced directly from in-game screenshots of OMORI (2020), made by the OMOCAT team
+			
+			FarawayTown.png and Headspace.png are official promotional artpieces made by OMOCAT for the T-Shirt merch drops for OMORI
+			https://twitter.com/_omocat/status/1375613560923951104
+			https://twitter.com/_omocat/status/1581072366133714947
+			
+			The page as a whole is styled around (the navmenu directly references) this location in the game, WHITE SPACE:
+			https://omori.fandom.com/wiki/WHITE_SPACE
+			
+			Official OMORI promotional website
+			https://www.omori-game.com/en
+
+			The sprites directly in /resources were obtained from this sprite sheet site:
+			https://www.spriters-resource.com/pc_computer/omori/sheet/158446/
+		 -->
 	</head>
 	<header>
 		<h1>OM</h1>
@@ -15,45 +46,108 @@
 		</a>
 		<h1>RI</h1>
 	</header>
+	<main>
+		<div class="content" id="Gameplay_of_OMORI">
+			<h2>Gameplay</h2>
+			OMORI intertwines traditional top-down JRPG elements with psychological horror, and encourages players to traverse the 
+			convoluted world forged by a mind grappling with grief and loneliness. Although featuring a relatively standard turn-based 
+			combat system, the interesting-looking enemies, challenging boss fights, and fun character-specific attacks keep things feeling 
+			fresh while you strive to move the story forward. On top of turn-based combat, exploration, and side-questing, combat is made 
+			more complex through the following two mechanics: EMOTIONS, in which friends and foes alike are affected by varying and 
+			leveling emotional statuses that are strong against one and weak against another, and FOLLOW-UPs: powerful skills that show off 
+			the developing relationships between each of the characters in the party. These two mechanics also serve a thematic role, 
+			reflecting the effect of emotional reactions on oneself and others, as well as the importance of developing healthy 
+			relationships with others, regardless of how hard that may be.
+			<div class="image-container">
+				<img src="resources/content/TurnbasedCombat.png" 
+					 alt="Screenshot of AUBREY performing an attack in-game." 
+					 title="Turn-based Combat Example">
+				<img src="resources/content/EmotionChart.png" 
+					 alt="Screenshot of the emotional strength/weakness chart from the game"
+					 title="Emotional Strength/Weakness Chart">
+			</div>
+		</div>
+		<div class="content" id="Art_of_OMORI">
+			<h2>Art</h2>
+			A visual embodiment of its theme of grief and healing, the visuals in OMORI oscillates between a childlike, colorful artstyle 
+			and a grounded, occasionally horrifying one. This contrast vividly captures the essence of the emotional struggle of 
+			experiencing loss during one's adolescence, another one of the game's major themes. Another potential interpretation I can 
+			personally draw from this contrast is how human lives (originally happy, good, innocent) are affected by the knowledge or fear 
+			of mortality, terrifying but nonetheless unavoidable. This artistic style is not limited to the backgrounds and setpieces, but 
+			further extends to character design. The characters in OMORI are cute, memorable, and lovable, yet another stark contrast to 
+			the realistic struggles they may suffer through despite their cartoonish and simple appearance.
+			<div class="image-container">
+				<img src="resources/content/OmoriDream.png" 
+					 alt="MARI, HERO, KEL, BASIL, OMORI, and AUBREY group hugging."
+					 title="Group hug!">
+				<img src="resources/content/OmoriNightmare.png"
+					 alt="The protagonist staring into a mirror at home while strange things lurk behind him"
+					 title="The protagonist experiencing a nightmare hallucination.">
+			</div>
+		</div>
+		<div class="content" id="Story_of_OMORI">
+			<h2>Story</h2>
+			At its core, the story of OMORI is an exploration of the experience, coping of, and eventual acceptance of loss. You play as a 
+			young, introverted shut-in who grew up happy with a group of friends that became fragmented when one of them unexpectedly 
+			passes away. Throughout the game, the protagonist is presented with the choice of continuing a life of deceit, stuck trapped in 
+			the past, or fighting to move on and face the truth of reality. Choosing the former means spending more time in HEADSPACE, the 
+			fictional dream world within the mind of the protagonist where he is able to relive the wholesome life he once had. The latter 
+			choice offers the opportunity to confront the once-happy group of friends and help them move on from their pain. I feel that 
+			anyone living in the shadow of unresolved pain may see their struggles reflected in the protagonist's journey, and once offered 
+			me insight into the importance of confronting painful truths and the power of acceptance.
+			<div class="image-container">
+				<img src="resources/content/Grouphug.png"
+					 alt="HERO and KEL consoling the protagonist and AUBREY."
+					 title="Group hug!">
+				<img src="resources/content/PreorderPromoThumbnail.png" 
+					 alt="MARI staring at the protagonist."
+					 title="MARI jumpscare!">
+			</div>
+		</div>
+		<div class="content" id="Characters_of_OMORI">
+			<h2>Characters</h2>
+			The main characters in OMORI are beautifully flawed, each bearing their own burdens, all the while bound together through the 
+			grief they share. The protagonist, along with MARI, HERO, KEL, AUBREY, and BASIL, represent the spectrum of coping mechanisms 
+			people may employ in the face of trauma. The journey of each character reflects that of the player throughout the game, 
+			allowing us to follow their struggles and growth. It was for this reason that I found it extremely easy to become attached to 
+			these characters. Alongside this growth and development, the characters of OMORI each possesses an element of charm that makes 
+			them individually unique!
+			<div class="image-container">
+				<img src="resources/content/Headspace.png"
+					 alt="HERO and KEL consoling the protagonist and AUBREY."
+					 title="Group hug!">
+				<img src="resources/content/FarawayTown.png">
+			</div>
+		</div>
+	</main>
 	<menu>
 		<div id="rectangle">
 			<a href="#Gameplay_of_OMORI">
-				<img src="resources/laptop.gif" class="sprite" alt="A laptop with white noise on the screen." title="About the Gameplay">
+				<img src="resources/laptop.gif" class="sprite" 
+					 alt="A laptop with white noise on the screen." 
+					 title="About the Gameplay">
 			</a>
 			<a href="#Art_of_OMORI">
-				<img src="resources/notepad.bmp" class="sprite" alt="A sketchbook with a scribble in it." title="About the Art">
+				<img src="resources/notepad.bmp" class="sprite" 
+					 alt="A sketchbook with a scribble in it." 
+					 title="About the Art">
 			</a>
 			<a href="#Story_of_OMORI">
-				<img src="resources/tissues.bmp" class="sprite" alt="A tissue box for wiping your sorrows away." title="About the Story">
+				<img src="resources/tissues.bmp" class="sprite" 
+					 alt="A tissue box for wiping your sorrows away." 
+					 title="About the Story">
 			</a>
 			<a href="#Characters_of_OMORI">
-				<img src="resources/mewoSleep.gif" class="sprite" alt="Mewo the Cat!" title="About the Characters" >
+				<img src="resources/mewoSleep.gif" class="sprite" 
+					 alt="Mewo the Cat!" 
+					 title="About the Characters" >
 			</a>
 			<div id="textbox">
 				<div id="inner-textbox">Meow? (Try hovering over these icons?)</div>
 			</div>
 		</div>
 	</menu>
-	<main>
-		<div class="content" id="Gameplay_of_OMORI">
-			<h2>Gameplay</h2>
-			OMORI intertwines traditional top-down JRPG elements with psychological horror, and encourages players to traverse the convoluted world forged by a mind grappling with grief and loneliness. Although featuring a relatively standard turn-based combat system, the interesting-looking enemies, challenging boss fights, and fun character-specific attacks keep things feeling fresh while you strive to move the story forward. On top of turn-based combat, exploration, and side-questing, combat is made more complex through the following two mechanics: EMOTIONS, in which friends and foes alike are affected by varying and leveling emotional statuses that are strong against one and weak against another, and FOLLOW-UPs: powerful skills that show off the developing relationships between each of the characters in the party. These two mechanics also serve a thematic role, reflecting the effect of emotional reactions on oneself and others, as well as the importance of developing healthy relationships with others, regardless of how hard that may be.
-		</div>
-		<div class="content" id="Art_of_OMORI">
-			<h2>Art</h2>
-			A visual embodiment of its theme of grief and healing, the visuals in OMORI oscillates between a childlike, colorful artstyle and a grounded, occasionally horrifying one. This contrast vividly captures the essence of the emotional struggle of experiencing loss during one's adolescence, another one of the game's major themes. Another potential interpretation I can personally draw from this contrast is how human lives (originally happy, good, innocent) are affected by the knowledge or fear of mortality, terrifying but nonetheless unavoidable. This artistic style is not limited to the backgrounds and setpieces, but further extends to character design. The characters in OMORI are cute, memorable, and lovable, yet another stark contrast to the realistic struggles they may suffer through despite their cartoonish and simple appearance.
-		</div>
-		<div class="content" id="Story_of_OMORI">
-			<h2>Story</h2>
-			At its core, the story of OMORI is an exploration of the experience, coping of, and eventual acceptance of loss. You play as a young, introverted shut-in who grew up happy with a group of friends that became fragmented when one of them unexpectedly passes away. Throughout the game, the protagonist is presented with the choice of continuing a life of deceit, stuck trapped in the past, or fighting to move on and face the truth of reality. Choosing the former means spending more time in HEADSPACE, the fictional dream world within the mind of the protagonist where he is able to relive the wholesome life he once had. The latter choice offers the opportunity to confront the once-happy group of friends and help them move on from their pain. I feel that anyone living in the shadow of unresolved pain may see their struggles reflected in the protagonist's journey, and once offered me insight into the importance of confronting painful truths and the power of acceptance.
-			<br><img src="temp.png"><br>
-		</div>
-		<div class="content" id="Characters_of_OMORI">
-			<h2>Characters</h2>
-			The main characters in OMORI are beautifully flawed, each bearing their own burdens, all the while bound together through the grief they share. The protagonist, along with MARI, HERO, KEL, AUBREY, and BASIL, represent the spectrum of coping mechanisms people may employ in the face of trauma. The journey of each character reflects that of the player throughout the game, allowing us to follow their struggles and growth. It was for this reason that I found it extremely easy to become attached to these characters. Alongside this growth and development, the characters of OMORI each possesses an element of charm that makes them individually unique!
-		</div>
-	</main>
-	
+
 	<footer>
 		<data>©</data> 2024 Iemontine, OMORI <data>©</data> OMOCAT 
 	</footer>
