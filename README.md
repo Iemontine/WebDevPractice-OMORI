@@ -2,7 +2,7 @@
 ## Intro Animation Recreation 
 Studied from https://www.omori-game.com/en
 
-![desktop default](resources/preview.gif)
+<img src="resources/preview.gif" width="1000" />
 
 ## Desktop View
 ![desktop default](https://github.com/Iemontine/WebDevPractice-OMORI/assets/95956143/04998d12-7cc8-4390-83b0-4575efeffcef)
