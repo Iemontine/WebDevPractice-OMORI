@@ -1,4 +1,7 @@
 # OMORI-Themed Web Design Practice!
+
+# Check it out [here](https://iemontine.github.io/WebDevPractice-OMORI/)!
+
 ## Intro Animation Recreation 
 Studied from https://www.omori-game.com/en
 
